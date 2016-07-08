@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>eu.europa.ec.fisheries.uvms.plugins</groupId>
+  <artifactId>ais-ra</artifactId>
+  <version>2.0.5-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <url>http://repository.jboss.org</url>
+  <properties>
+    <version.org.jboss.ironjacamar>1.2.7.Final</version.org.jboss.ironjacamar>
+    <junit.version>4.10</junit.version>
+    <release.branch.name>uvms-2.0.4-halbarad</release.branch.name>
+    <project.scm.id>github</project.scm.id>
+    <maven-release-plugin>2.5.3</maven-release-plugin>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.jboss.ironjacamar</groupId>
+      <artifactId>ironjacamar-spec-api</artifactId>
+      <version>${version.org.jboss.ironjacamar}</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.jboss.ironjacamar</groupId>
+        <artifactId>ironjacamar-depchain</artifactId>
+        <version>${version.org.jboss.ironjacamar}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  
+  <build>
+    <sourceDirectory>src/main/java</sourceDirectory>
+    <testSourceDirectory>src/test/java</testSourceDirectory>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.5.1</version>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.5</version>
+        <configuration>
+          <excludes>
+            <exclude>**/META-INF/*</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-rar-plugin</artifactId>
+        <version>2.4</version>
+        <executions>
+          <execution>
+            <id>package</id>
+            <goals>
+              <goal>rar</goal>
+            </goals>
+            <configuration>
+              
+            </configuration>
+        </execution></executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-install-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>install-jar</id>
+            <phase>install</phase>
+            <goals>
+              <goal>install-file</goal>
+            </goals>
+            <configuration>
+              <file>./target/${project.artifactId}-${project.version}.jar</file>
+              <groupId>${project.groupId}</groupId>
+              <artifactId>${project.artifactId}</artifactId>
+              <packaging>jar</packaging>
+              <version>${project.version}</version>
+            </configuration>
+          </execution>
+          <execution>
+            <id>install-rar</id>
+            <phase>install</phase>
+            <goals>
+              <goal>install-file</goal>
+            </goals>
+            <configuration>
+                <file>./target/${project.artifactId}-${project.version}.rar</file>
+              <groupId>${project.groupId}</groupId>
+              <artifactId>${project.artifactId}</artifactId>
+              <packaging>rar</packaging>
+              <version>${project.version}</version>
+            </configuration>
+          </execution>
+          <!-- execution file 3... -->
+        </executions>
+      </plugin>
+        <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>${maven-release-plugin}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.scm</groupId>
+                        <artifactId>maven-scm-provider-gitexe</artifactId>
+                        <version>1.8.1</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+    </plugins>
+  </build> 
+
+  <repositories>
+        <repository>
+            <id>focus-repo</id>
+            <name>Focus nexus repository</name>
+            <url>http://nexus.focus.fish/</url>
+        </repository>
+    </repositories>
+
+    <distributionManagement> 
+        <repository>
+            <id>focus-releases</id>
+            <name>UnionVms Repository</name>
+            <url>http://nexus.focus.fish/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>focus-snapshots</id>
+            <name>UnionVms Snapshot Repository</name>
+            <url>http://nexus.focus.fish/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <scm>
+        <connection>scm:git:https://github.com/UnionVMS/UVMS-AIS-RESOURCE-ADAPTER.git</connection>
+    </scm>
+</project>
