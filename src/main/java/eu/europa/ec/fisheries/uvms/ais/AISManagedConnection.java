@@ -203,7 +203,7 @@ public class AISManagedConnection implements ManagedConnection {
             try {
                 socket.close();
             } catch (IOException e) {
-                log.warning("Error when cloing socket. " + e);
+                log.warning("Error when closing socket. " + e);
             }
         }
         connections.remove((AISConnectionImpl) handle);
