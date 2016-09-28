@@ -15,7 +15,19 @@
         <release.branch.name>uvms-2.0.4-halbarad</release.branch.name>
         <project.scm.id>github</project.scm.id>
         <maven-release-plugin>2.5.3</maven-release-plugin>
+        <repo.url>http://nexus.focus.fish/nexus/content/repositories/releases/</repo.url>
+        <repo.id>focus-releases</repo.id>
     </properties>
+
+    <profiles>
+        <profile>
+            <id>snapshot</id>
+            <properties>
+                <repo.url>http://nexus.focus.fish/nexus/content/repositories/snapshots/</repo.url>
+                <repo.id>focus-snapshots</repo.id>
+            </properties>
+        </profile>
+    </profiles>
 
     <dependencies>
         <dependency>
@@ -111,7 +123,6 @@
                             <version>${project.version}</version>
                         </configuration>
                     </execution>
-                    <!-- execution file 3... -->
                 </executions>
             </plugin>
 
@@ -134,6 +145,9 @@
                             <artifactId>${project.artifactId}</artifactId>
                             <packaging>jar</packaging>
                             <version>${project.version}</version>
+                            <url>http://nexus.focus.fish/nexus/content/repositories</url>
+                            <repositoryId>${repo.id}</repositoryId>
+                            <url>${repo.url}</url>
                         </configuration>
                     </execution>
                     <execution>
@@ -148,9 +162,10 @@
                             <artifactId>${project.artifactId}</artifactId>
                             <packaging>rar</packaging>
                             <version>${project.version}</version>
+                            <repositoryId>${repo.id}</repositoryId>
+                            <url>${repo.url}</url>
                         </configuration>
                     </execution>
-                    <!-- execution file 3... -->
                 </executions>
             </plugin>
 
