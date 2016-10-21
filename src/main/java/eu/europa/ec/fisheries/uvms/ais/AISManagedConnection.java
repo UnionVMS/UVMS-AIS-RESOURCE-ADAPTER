@@ -276,8 +276,8 @@ public class AISManagedConnection implements ManagedConnection {
         if (sentences == null) {
             sentences = new ConcurrentLinkedQueue<>();
         }
-        System.out.println("Sentences: " + sentences.size());
-        System.out.println("Sentences: " + sentences);
+        //System.out.println("Sentences: " + sentences.size());
+        //System.out.println("Sentences: " + sentences);
     }
 
     public boolean isOpen() {
