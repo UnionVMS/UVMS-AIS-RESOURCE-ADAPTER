@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>eu.europa.ec.fisheries.uvms.plugins</groupId>
@@ -12,7 +10,7 @@
     <properties>
         <version.org.jboss.ironjacamar>1.2.7.Final</version.org.jboss.ironjacamar>
         <junit.version>4.10</junit.version>
-        <release.branch.name>uvms-2.0.4-halbarad</release.branch.name>
+        <release.branch.name>uvms-2.1.1-kili</release.branch.name>
         <project.scm.id>github</project.scm.id>
         <maven-release-plugin>2.5.3</maven-release-plugin>
         <repo.url>http://nexus.focus.fish/nexus/content/repositories/releases/</repo.url>
@@ -26,7 +24,7 @@
             <properties>
                 <repo.url>http://nexus.focus.fish/nexus/content/repositories/snapshots/</repo.url>
                 <repo.id>focus-snapshots</repo.id>
-            </properties>
+            <release.branch.name>uvms-2.1.1-kili</release.branch.name></properties>
         </profile>
         <profile>
             <id>copy-ear</id>
