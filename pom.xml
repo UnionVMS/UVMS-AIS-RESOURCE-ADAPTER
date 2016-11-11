@@ -10,7 +10,7 @@
     <properties>
         <version.org.jboss.ironjacamar>1.2.7.Final</version.org.jboss.ironjacamar>
         <junit.version>4.10</junit.version>
-        <release.branch.name>uvms-2.1.1-kili</release.branch.name>
+        <release.branch.name>release-2.1.2-legolas</release.branch.name>
         <project.scm.id>github</project.scm.id>
         <maven-release-plugin>2.5.3</maven-release-plugin>
         <repo.url>http://nexus.focus.fish/nexus/content/repositories/releases/</repo.url>
@@ -24,7 +24,7 @@
             <properties>
                 <repo.url>http://nexus.focus.fish/nexus/content/repositories/snapshots/</repo.url>
                 <repo.id>focus-snapshots</repo.id>
-            <release.branch.name>uvms-2.1.1-kili</release.branch.name></properties>
+            <release.branch.name>release-2.1.2-legolas</release.branch.name></properties>
         </profile>
         <profile>
             <id>copy-ear</id>
