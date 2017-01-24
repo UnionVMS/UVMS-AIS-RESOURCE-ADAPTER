@@ -15,7 +15,7 @@
     <url>http://repository.jboss.org</url>
     <properties>
         <version.org.jboss.ironjacamar>1.2.7.Final</version.org.jboss.ironjacamar>
-        <release.branch.name>uvms-3.0.1-C3PO</release.branch.name>
+        <release.branch.name>uvms-3.0.3-C3PO</release.branch.name>
         <repo.url>http://nexus.focus.fish/nexus/content/repositories/releases/</repo.url>
         <repo.id>focus-releases</repo.id>
         <copy.ear.target>C:\dev\WebLogic\domain1213\servers\AdminServer\upload</copy.ear.target>
@@ -27,7 +27,7 @@
             <properties>
                 <repo.url>http://nexus.focus.fish/nexus/content/repositories/snapshots/</repo.url>
                 <repo.id>focus-snapshots</repo.id>
-            <release.branch.name>uvms-3.0.1-C3PO</release.branch.name></properties>
+            <release.branch.name>uvms-3.0.3-C3PO</release.branch.name></properties>
         </profile>
         <profile>
             <id>copy-ear</id>
