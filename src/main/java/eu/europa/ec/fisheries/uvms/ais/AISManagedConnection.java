@@ -367,12 +367,12 @@ public class AISManagedConnection implements ManagedConnection {
                         tmp += arr[5];
                         // If this part is the last sentence part, cache it
                         if (Integer.parseInt(arr[1]) == Integer.parseInt(arr[2])) {
-                            addToQueue(tmp);
+                            sentences.add(tmp);
                             tmp = "";
                         }
                     } else {
                         // This is a single sentence message, cache it
-                        addToQueue(arr[5]);
+                        sentences.add(arr[5]);
                     }
                 }
             } catch (Exception e) {
@@ -382,19 +382,4 @@ public class AISManagedConnection implements ManagedConnection {
 
         }
     }
-
-    void addToQueue(String sentence) {
-        // We are only interested in sentences with ID < 3 or ID == 18.
-        switch (sentence.charAt(0)) {
-            case '0': // message id 0
-            case '1': // message id 1
-            case '2': // message id 2
-            case 'B': // message id 18
-                sentences.add(sentence);
-                return;
-            default:
-                return;
-        }
-    }
-
 }
