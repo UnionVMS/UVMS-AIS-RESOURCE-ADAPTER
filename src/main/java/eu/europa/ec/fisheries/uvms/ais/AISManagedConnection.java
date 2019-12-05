@@ -62,6 +62,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  */
 public class AISManagedConnection implements ManagedConnection {
     private static final int RETRY_DELAY_TIME_SEC = 10;
+    private static final int SOCKET_SO_TIMEOUT = 5 * 60 * 1000;
 
     /**
      * The logger
@@ -339,7 +340,7 @@ public class AISManagedConnection implements ManagedConnection {
         sentences = new ConcurrentLinkedQueue<>();
 
         socket.setKeepAlive(true);
-        socket.setSoTimeout(0);
+        socket.setSoTimeout(SOCKET_SO_TIMEOUT);
         socket.connect(new InetSocketAddress(InetAddress.getByName(host), port));
 
         BufferedWriter commandOut = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
