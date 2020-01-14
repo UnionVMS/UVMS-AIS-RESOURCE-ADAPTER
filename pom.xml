@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>eu.europa.ec.fisheries.uvms.plugins</groupId>
     <artifactId>ais-ra</artifactId>
-    <version>3.0.8</version>
+    <version>3.0.9-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <url>http://repository.jboss.org</url>
@@ -222,6 +222,6 @@
 
     <scm>
         <connection>scm:git:https://github.com/UnionVMS/UVMS-AIS-RESOURCE-ADAPTER.git</connection>
-        <tag>ais-ra-3.0.8</tag>
+        <tag>HEAD</tag>
     </scm>
 </project>
