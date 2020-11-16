@@ -15,7 +15,7 @@
 
     <url>http://repository.jboss.org</url>
     <properties>
-        <version.org.jboss.ironjacamar>1.4.24.Final</version.org.jboss.ironjacamar>
+        <version.org.jboss.ironjacamar>1.4.25.Final</version.org.jboss.ironjacamar>
         <release.branch.name>uvms-3.0.3-C3PO</release.branch.name>
         <repo.url>http://nexus.focus.fish/nexus/content/repositories/releases/</repo.url>
         <repo.id>focus-releases</repo.id>
