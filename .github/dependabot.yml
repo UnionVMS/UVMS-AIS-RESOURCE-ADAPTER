@@ -1,0 +1,29 @@
+version: 2
+registries:
+  maven-repository-nexus-focus-fish-nexus-content-repositories-rel:
+    type: maven-repository
+    url: http://nexus.focus.fish/nexus/content/repositories/releases/
+    username: greg
+    password: "${{secrets.MAVEN_REPOSITORY_NEXUS_FOCUS_FISH_NEXUS_CONTENT_REPOSITORIES_REL_PASSWORD}}"
+
+updates:
+- package-ecosystem: maven
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "20:00"
+  open-pull-requests-limit: 99
+  reviewers:
+  - peerik
+  - Johanhav
+  ignore:
+  - dependency-name: org.jboss.ironjacamar:ironjacamar-depchain
+    versions:
+    - 1.4.29.Final
+    - 1.4.30.Final
+  - dependency-name: org.jboss.ironjacamar:ironjacamar-spec-api
+    versions:
+    - 1.4.29.Final
+    - 1.4.30.Final
+  registries:
+  - maven-repository-nexus-focus-fish-nexus-content-repositories-rel
